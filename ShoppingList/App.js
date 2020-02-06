@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
+import ListItem from './components/ListItem';
 import Header from './components/Header';
 
 const App = () => {
@@ -15,19 +16,11 @@ const App = () => {
       <Header title='Shopping List' />
       <FlatList
         data={items}
-        renderItem={({ item }) => <Text>{item.text}</Text>}
+        renderItem={({ item }) => <ListItem item={item} />}
       />
     </View>
   );
 };
-
-function Item({ title }) {
-  return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
